@@ -6,7 +6,6 @@ function checkAccess(event) {
     const correctPassword = "gator";
 
     if (pass === correctPassword) {
-        alert("Hello! I am a browser alert box!");
         window.location.href = "https://www.google.com";
     } else {
         input.value = "";
