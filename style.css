@@ -1,6 +1,15 @@
 body {
-  font-family: Roboto mono, sans-serif; 
+  font-family: Roboto mono; 
   background-color: black;
   color: #33FF33;
   margin: 25px;                  
 }
+
+#passwordField {
+  border: none;           
+  background: none;       
+  outline: none;          
+          
+  color: #33FF33;
+  font-family: Roboto mono; 
+      }
