@@ -3,13 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Web Page</title>
+    <title>??????</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    
-    <p>Hello world!</p>
-    <p>You can add more content here.</p>
+    <form id="access" onsubmit="checkAccess(event)">
+        <input type="password" id="passwordField">
+    </form>
+
+    <script>
+    function checkAccess(event) {
+        event.preventDefault();
+
+        const password = document.getElementById('passwordField').value;
+        const correctPassword = "gator";
+
+        if (password === correctPassword) {
+            window.location.href = "success_page.html";
+        } else {
+            document.getElementById('passwordField').value = "";
+        }
+    }
+    </script>
 
 </body>
 </html>
