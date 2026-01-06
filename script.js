@@ -1,13 +1,13 @@
-let textToType = ['Hello', 'Hi', 'Salutations']; 
-const typingSpeed = 50; 
-let index = 0;
+const text = "Hello! Blah blah blah blah";
+const speed = 100;
+let i = 0;
 
 function typeWriter() {
-    if (index < textToType.length) {
-        textElement.innerHTML += textToType.charAt(index);
-        index++;
-        setTimeout(typeWriter, typingSpeed);
-    }
-    textToType = textToType.splice(1, textToType.length)
-    index = 0;
+  if (i < text.length) {
+    document.getElementById('text').innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
 }
+
+typeWriter();
