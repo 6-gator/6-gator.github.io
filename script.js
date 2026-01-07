@@ -20,7 +20,7 @@ function typeWriter() {
   if (i <= text.length) {
     cursorElement.classList.remove('blink');
     
-    textElement.innerHTML += text.charAt(i);
+    textElement.innerText += text.charAt(i);
     i++;
     setTimeout(typeWriter, speed);
   } else {
