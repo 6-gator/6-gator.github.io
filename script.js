@@ -1,5 +1,5 @@
 const text = "Hello, people of Gainesville. This is the Viddler speaking.\n\n" +
-"This city likes its stories simple bright colors, loud nights, familiar rituals that repeat until no one remembers why they started.\n" +
+"This city likes its stories simple: bright colors, loud nights, familiar rituals that repeat until no one remembers why they started.\n" +
 "BatVid became part of that routine. A shape in the background. A presence everyone talks about, few actually observe. So I took him\n" + 
 "out of circulation. Not to erase him, but to see what happens when the outline disappears and only the details remain.\n\n" +
 "I left traces instead of directions. You’ll find them if you slow down—if you’re willing to sit in the dark a little longer than is\n" + 
