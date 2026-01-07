@@ -8,7 +8,7 @@ const text = "Hello, people of Gainesville. This is the Viddler speaking.\n\n" +
 "loudly enough.\n\n" +
 "If you follow what’s been left behind, you’ll get closer to BatVid. But that isn’t the point. The point is whether, when faced with" + 
 "the full weight of it — every silence, every pause, every unbroken stretch of time — you finally understand what everyone else" + 
-"kept talking over and avoiding. Some truths don’t hide. They wait. And they only reveal themselves to those who are willing" +
+"kept talking over. Some truths don’t hide. They wait. And they only reveal themselves to those who are willing" +
 "to actually watch.";
 const speed = 100;
 let i = 0;
