@@ -39,7 +39,7 @@ function typeWriter(elementID, flag = 1) {
     cursorElement.classList.remove('blink');
     textElement.innerText += text.charAt(i);
     i++;
-    setTimeout(typeWriter, speed);
+    setTimeout(typeWriter(elementID, flag), speed);
   } else {
     cursorElement.classList.add('blink');
     if (flag) {
