@@ -44,4 +44,12 @@ function typeWriter() {
   }
 }
 
+function watch(url, durationSeconds) {
+    const delayMilliseconds = durationSeconds * 1000;
+    setTimeout(() => {
+        window.location.href = url;
+    }, delayMilliseconds);
+}
+
 typeWriter();
+redirectToPageAfterTimer("page1.html", 5);
