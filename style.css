@@ -4,12 +4,12 @@ body {
     color: #33FF33;
 }
 
-#text {
+#original-text {
     transition: color 10s ease;
     color: #33FF33; 
 }
 
-#text.fade-active {
+#original-text.fade-active {
     color: rgba(51, 255, 51, 0.1); 
 }
 
