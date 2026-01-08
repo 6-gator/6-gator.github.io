@@ -1,25 +1,3 @@
-function typeWriter() {
-  const textElement = document.getElementById('text');
-  const cursorElement = document.querySelector('.cursor');
-
-  if (i <= text.length) {
-    cursorElement.classList.remove('blink');
-    textElement.innerText += text.charAt(i);
-    i++;
-    setTimeout(typeWriter, speed);
-  } else {
-    cursorElement.classList.add('blink');
-  }
-}
-
-function watch(url, durationSeconds) {
-    const delayMilliseconds = durationSeconds * 1000;
-    setTimeout(() => {
-        window.location.href = url;
-    }, delayMilliseconds);
-}
-
-
 const isMobile = /Android|iPhone|iPad|iPod|Mobi/i.test(navigator.userAgent);
 let text = "";
 if (isMobile) {
@@ -52,6 +30,27 @@ if (isMobile) {
 const speed = 100;
 let i = 0;
 
+function typeWriter() {
+  const textElement = document.getElementById('text');
+  const cursorElement = document.querySelector('.cursor');
+
+  if (i <= text.length) {
+    cursorElement.classList.remove('blink');
+    textElement.innerText += text.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  } else {
+    cursorElement.classList.add('blink');
+    applyFade("text", "watch");
+  }
+}
+
+function applyFade(elementId, word) {
+    const container = document.getElementById(elementId);
+    const originalText = container.innerText; 
+    const regex = new RegExp(`\\b(${word})\\b`);
+    container.innerHTML = originalText.replace(regex, `<span class="keep-visible">$1</span>`);
+    container.classList.add("fade-active");
+}
 
 typeWriter();
-redirectToPageAfterTimer("page1.html", 5);
