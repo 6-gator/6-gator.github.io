@@ -31,7 +31,7 @@ if (isMobile) {
 const speed = 100;
 let i = 0;
 
-function typeWriter(elementID, flag = 0) {
+function typeWriter(elementID, word = "", flag = 0) {
   const textElement = document.getElementById(elementID);
   const cursorElement = document.querySelector('.cursor');
 
@@ -43,15 +43,14 @@ function typeWriter(elementID, flag = 0) {
   } else {
     cursorElement.classList.add('blink');
     if !(flag) {
-          applyFade();
+          applyFade(elementID, word);
     } 
   }
 }
 
-function applyFade() {
+function applyFade(elementID, word) {
     events.forEach(event => window.addEventListener(event, interruptFade));
-    const container = document.getElementById("original-text");
-    const word = "watch";
+    const container = document.getElementById(elementID);
     const originalText = container.innerText.replace(/\r?\n/g, '<br>');
     const regex = new RegExp(`\\b(${word})\\b`);
     container.innerHTML = originalText.replace(regex, `<span class="keep-visible">$1</span>`);
@@ -66,4 +65,4 @@ function interruptFade() {
     window.location.replace("https://www.google.com");
 }
 
-typeWriter("original-text");
+typeWriter("original-text", "watch");
