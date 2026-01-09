@@ -28,7 +28,9 @@ if (isMobile) {
       "kept talking over. Some truths don’t hide. They wait. And they only reveal themselves to those who are willing\n" +
       "to actually watch.";
     }
+
 let speed = 1;
+let typingTracker;
 
 function typeWriter(elementID, word, flag = 0, i = 0) {
   const textElement = document.getElementById(elementID);
@@ -37,7 +39,7 @@ function typeWriter(elementID, word, flag = 0, i = 0) {
   if (i <= text.length) {
     cursorElement.classList.remove('blink');
     textElement.innerText += text.charAt(i);
-    setTimeout(() => typeWriter(elementID, word, flag, i + 1), speed);
+    typingTracker = setTimeout(() => typeWriter(elementID, word, flag, i + 1), speed);
   } else {
     cursorElement.classList.add('blink');
     if (flag == 0) applyFade(elementID, word);
@@ -66,6 +68,7 @@ function interruptFade() {
     newTextContainer.style.marginTop = "20px";
     document.body.appendChild(newTextContainer);
     newTextContainer.appendChild(cursor);
+    clearTimeout(typingTracker);
     text = "blah blah blah";
     typeWriter("interrupt-text", "", 1); 
 }
