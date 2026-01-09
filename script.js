@@ -45,6 +45,9 @@ function typeWriter(elementID, word = "", flag = 0) {
     if (flag == 0) {
           applyFade(elementID, word);
     } 
+    if (flag == 1) {
+          window.location.replace("https://www.google.com");
+    }
   }
 }
 
@@ -58,11 +61,11 @@ function applyFade(elementID, word) {
 }
 
 function interruptFade() {
-    const textElement = document.getElementById("original-text");
+    const currentStyle = window.getComputedStyle(textElement);
+    const midFadeColor = currentStyle.color;
     textElement.style.transition = "none"; 
-    textElement.classList.remove("fade-active");
-    events.forEach(event => window.removeEventListener(event, interruptFade));
-    window.location.replace("https://www.google.com");
+    textElement.style.color = midFadeColor; 
+    events.forEach(event => window.removeEventListener(event, interruptFade))
 }
 
 typeWriter("original-text", "watch");
