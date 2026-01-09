@@ -23,14 +23,12 @@ function generateRiddleMeThis(length = 1000) {
     const base = "Riddle me this";
     const symbols = ['!', '$', '@', '?', '1', '3', '0', '#', '%', '*'];
     const result = [];
-    if (!isMobile) {
-        for (let i = 0; i < 4; i++) {
-            result.push(base + '.');
-        }
-    }
+    const computer = !isMobile;
+    const maxPerLine = 8;
+    let lineBuffer = [];
     for (let i = 0; i < length; i++) {
         let phrase = base;
-        const chaosLevel = i / length;
+        const chaosLevel = Math.pow(i / length, 0.5);
         phrase = phrase.split('').map(char => {
             if (Math.random() < chaosLevel * 0.3) {
                 if (/[a-zA-Z]/.test(char)) {
@@ -48,9 +46,16 @@ function generateRiddleMeThis(length = 1000) {
         } else {
             phrase += '.';
         }
-        result.push(phrase);
+        lineBuffer.push(phrase);
+        if (computer && lineBuffer.length === maxPerLine) {
+            result.push(lineBuffer.join(' '));
+            lineBuffer = [];
+        }
     }
-    return result.join(' ');
+    if (lineBuffer.length > 0) {
+        result.push(lineBuffer.join(' '));
+    }
+    return result.join('\n');
 }
 
 if (isMobile) {
