@@ -72,7 +72,7 @@ function interruptFade() {
     document.body.appendChild(newTextContainer);
 
     text = "blah blah blah";
-    typeWriter("interrupt-text", "", 1); 
+    typeWriter("interrupt-text-span", "", 1); 
 }
 
 typeWriter("original-text", "watch");
