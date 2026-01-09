@@ -29,9 +29,8 @@ if (isMobile) {
       "to actually watch.";
     }
 let speed = 100;
-let i = 0;
 
-function typeWriter(elementID, word, flag = 0) {
+function typeWriter(elementID, word, flag, i = 0) {
   const textElement = document.getElementById(elementID);
   const cursorElement = document.querySelector('.cursor');
 
@@ -41,7 +40,6 @@ function typeWriter(elementID, word, flag = 0) {
     i++;
     setTimeout(() => typeWriter(elementID, word, flag), speed);
   } else {
-    i = 0;
     cursorElement.classList.add('blink');
     if (flag == 0) {
           applyFade(elementID, word);
