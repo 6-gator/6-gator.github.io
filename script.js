@@ -41,6 +41,7 @@ function typeWriter(elementID, word = "", flag = 0) {
     i++;
     setTimeout(() => typeWriter(elementID, word, flag), speed);
   } else {
+    i = 0;
     cursorElement.classList.add('blink');
     if (flag == 0) {
           applyFade(elementID, word);
