@@ -29,26 +29,19 @@ if (isMobile) {
       "to actually watch.";
     }
 let speed = 100;
-let i = 0;
 
-function typeWriter(elementID, word, flag = 0) {
+function typeWriter(elementID, word, flag = 0, i = 0) {
   const textElement = document.getElementById(elementID);
   const cursorElement = document.querySelector('.cursor');
 
   if (i <= text.length) {
     cursorElement.classList.remove('blink');
     textElement.innerText += text.charAt(i);
-    i++;
-    setTimeout(() => typeWriter(elementID, word, flag), speed);
+    setTimeout(() => typeWriter(elementID, word, flag, i + 1), speed);
   } else {
-    i = 0;
     cursorElement.classList.add('blink');
-    if (flag == 0) {
-          applyFade(elementID, word);
-    } 
-    if (flag == 1) {
-          window.location.replace("https://www.google.com");
-    }
+    if (flag == 0) applyFade(elementID, word);
+    if (flag == 1) window.location.replace("https://www.google.com");
   }
 }
 
