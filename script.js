@@ -31,7 +31,7 @@ if (isMobile) {
 let speed = 100;
 let i = 0;
 
-function typeWriter(elementID, word = "", flag = 0) {
+function typeWriter(elementID, word, flag = 0) {
   const textElement = document.getElementById(elementID);
   const cursorElement = document.querySelector('.cursor');
 
@@ -74,7 +74,7 @@ function interruptFade() {
     document.body.appendChild(newTextContainer);
     newTextContainer.appendChild(cursor);
     text = "blah blah blah";
-    typeWriter("interrupt-text", , 1); 
+    typeWriter("interrupt-text", "", 1); 
 }
 
 typeWriter("original-text", "watch");
