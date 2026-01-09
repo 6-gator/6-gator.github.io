@@ -1,6 +1,23 @@
 const isMobile = /Android|iPhone|iPad|iPod|Mobi/i.test(navigator.userAgent);
 const events = ["mousemove", "mousedown", "keydown", "touchstart"];
 let text = "";
+let iMsg = ""
+let question_mark = "        ????????????????\n" +
+                    "      ?????????  ??????????\n" +
+                    "     ?????            ??????\n" +
+                    "     ????              ?????\n" +
+                    "                       ?????\n" +
+                    "                    ???????\n" +
+                    "                 ???????\n" +
+                    "               ???????\n" +
+                    "              ?????\n" +
+                    "             ?????\n" +
+                    "             ?????\n" +
+                    "             ?????\n" +
+                    "             ?????\n\n" +
+                    "              ???\n" +
+                    "             ?????\n" +
+                    "              ??\n\n\n";
 if (isMobile) {
       text = "Hello, people of Gainesville. This is the Viddler speaking.\n\n" +
       "This city likes its stories simple: bright colors, loud nights, familiar rituals that repeat until no one remembers why they started. " +
@@ -14,6 +31,9 @@ if (isMobile) {
       "the full weight of it — every silence, every pause, every unbroken stretch of time — you finally understand what everyone else " + 
       "kept talking over. Some truths don’t hide. They wait. And they only reveal themselves to those who are willing " +
       "to actually watch.";
+      iMsg = "You wanted answers before they were ready to meet you. And yet answers, like riddles, have a way of hiding in plain sight for " +
+             "those too eager to see them. Every detail you overlook whispers louder than the truths you tried to grasp too quickly. " +
+             "So tell me...\n\n\n" + question_mark;
     } else {
       text = "Hello, people of Gainesville. This is the Viddler speaking.\n\n" +
       "This city likes its stories simple: bright colors, loud nights, familiar rituals that repeat until no one remembers why they started.\n" +
@@ -27,6 +47,9 @@ if (isMobile) {
       "the full weight of it — every silence, every pause, every unbroken stretch of time — you finally understand what everyone else\n" + 
       "kept talking over. Some truths don’t hide. They wait. And they only reveal themselves to those who are willing\n" +
       "to actually watch.";
+      iMsg = "You wanted answers before they were ready to meet you. And yet answers, like riddles, have a way of hiding in plain sight for\n" +
+             "those too eager to see them. Every detail you overlook whispers louder than the truths you tried to grasp too quickly.\n" +
+             "So tell me...\n\n\n" + question_mark;
     }
 
 let speed = 1;
