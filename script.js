@@ -28,9 +28,10 @@ if (isMobile) {
       "kept talking over. Some truths don’t hide. They wait. And they only reveal themselves to those who are willing\n" +
       "to actually watch.";
     }
-let speed = 100;
+let speed = 1;
+let i = 0;
 
-function typeWriter(elementID, word, flag, i = 0) {
+function typeWriter(elementID, word = "", flag = 0) {
   const textElement = document.getElementById(elementID);
   const cursorElement = document.querySelector('.cursor');
 
@@ -38,8 +39,9 @@ function typeWriter(elementID, word, flag, i = 0) {
     cursorElement.classList.remove('blink');
     textElement.innerText += text.charAt(i);
     i++;
-    setTimeout(() => typeWriter(elementID, word, flag, i), speed);
+    setTimeout(() => typeWriter(elementID, word, flag), speed);
   } else {
+    i = 0;
     cursorElement.classList.add('blink');
     if (flag == 0) {
           applyFade(elementID, word);
@@ -75,4 +77,4 @@ function interruptFade() {
     typeWriter("interrupt-text", "", 1); 
 }
 
-typeWriter("original-text", "watch", 0);
+typeWriter("original-text", "watch");
