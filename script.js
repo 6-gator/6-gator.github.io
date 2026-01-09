@@ -101,8 +101,8 @@ function typeWriter(elementID, word, flag = 0, i = 0) {
   if (i < text.length) {
     cursorElement.classList.remove('blink');
     let char = text.charAt(i);
-    if (char === '~') textElement.innerHTML += '&nbsp;';
-    textElement.innerText += char;
+    if (char === '~') {textElement.innerHTML += '&nbsp;';}
+    else {textElement.innerText += char;}
     if (flag == 1 && speed > 1) speed -= 1;
     setTimeout(() => typeWriter(elementID, word, flag, i + 1), speed);
   } else {
