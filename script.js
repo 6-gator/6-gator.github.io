@@ -93,9 +93,12 @@ function typeWriter(elementID, word, flag = 0, i = 0) {
   const textElement = document.getElementById(elementID);
   const cursorElement = document.querySelector('.cursor');
 
-  if (i <= text.length) {
+  if (i < text.length) {
     cursorElement.classList.remove('blink');
-    textElement.innerText += text.charAt(i);
+    let char = text.charAt(i);
+    if (char === ' ') char = '&nbsp;';
+    if (char === '\n') char = '<br>';
+    textElement.innerHTML += char;
     setTimeout(() => typeWriter(elementID, word, flag, i + 1), speed);
   } else {
     cursorElement.classList.add('blink');
@@ -106,9 +109,9 @@ function typeWriter(elementID, word, flag = 0, i = 0) {
 
 function applyFade(elementID, word) {
     const container = document.getElementById(elementID);
-    const originalText = container.innerText.replace(/\r?\n/g, '<br>');
+    const originalHTML = container.innerHTML;
     const regex = new RegExp(`\\b(${word})\\b`);
-    container.innerHTML = originalText.replace(regex, `<span class="keep-visible">$1</span>`);
+    container.innerHTML = originalHTML.replace(regex, `<span class="keep-visible">$1</span>`);
     container.classList.add("fade-active");
     events.forEach(event => window.addEventListener(event, interruptFade));
 }
@@ -129,7 +132,7 @@ function interruptFade() {
     newTextContainer.appendChild(cursor);
     document.body.appendChild(newTextContainer);
 
-    text = "blah blah blah";
+    text = iMsg;
     typeWriter("interrupt-text-span", "", 1); 
 }
 
