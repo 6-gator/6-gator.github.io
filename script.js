@@ -115,8 +115,8 @@ function typeWriter(elementID, word, flag = 0, i = 0) {
 function applyFade(elementID, word) {
     const container = document.getElementById(elementID);
     const originalText = container.innerText.replace(/\r?\n/g, '<br>');
-    const regex = new RegExp('\\b(${word})\\b');
-    container.innerHTML = originalText.replace(regex, '<span class="keep-visible">$1</span>');
+    const regex = new RegExp(`\\b(${word})\\b`);
+    container.innerHTML = originalText.replace(regex, `<span class="keep-visible">$1</span>`);
     container.classList.add("fade-active");
     events.forEach(event => window.addEventListener(event, interruptFade));
 }
