@@ -101,9 +101,8 @@ function typeWriter(elementID, word, flag = 0, i = 0) {
   if (i < text.length) {
     cursorElement.classList.remove('blink');
     let char = text.charAt(i);
-    if (char === '~') char = '&nbsp;';
-    if (char === '\n') char = '<br>';
-    textElement.innerHTML += char;
+    if (char === '~') textElement.innerHTML += '&nbsp;';
+    textElement.innerText += char;
     if (flag == 1 && speed > 1) speed -= 1;
     setTimeout(() => typeWriter(elementID, word, flag, i + 1), speed);
   } else {
@@ -115,9 +114,9 @@ function typeWriter(elementID, word, flag = 0, i = 0) {
 
 function applyFade(elementID, word) {
     const container = document.getElementById(elementID);
-    const originalHTML = container.innerHTML;
+    const originalText = container.innerText.replace(/\r?\n/g, '<br>');
     const regex = new RegExp('\\b(${word})\\b');
-    container.innerHTML = originalHTML.replace(regex, `<span class="keep-visible">$1</span>`);
+    container.innerHTML = originalText.replace(regex, '<span class="keep-visible">$1</span>');
     container.classList.add("fade-active");
     events.forEach(event => window.addEventListener(event, interruptFade));
 }
