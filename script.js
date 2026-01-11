@@ -92,12 +92,12 @@ if (isMobile) {
              "So tell me...\n\n\n" + question_mark +generateRiddleMeThis();
     }
 
-let speed = 100;
+let speed = 1;
 
 function typeWriter(elementID, word, flag = 0, i = 0) {
   const textElement = document.getElementById(elementID);
+  if (!textElement) return;
   const cursorElement = document.querySelector('.cursor');
-
   if (i < text.length) {
     cursorElement.classList.remove('blink');
     let char = text.charAt(i);
