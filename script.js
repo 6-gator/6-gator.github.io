@@ -108,7 +108,7 @@ function typeWriter(elementID, word, flag = 0, i = 0) {
   } else {
     cursorElement.classList.add('blink');
     if (flag == 0) applyFade(elementID, word);
-    if (flag == 1) window.location.replace("https://www.google.com");
+    if (flag == 1) window.location.replace("error.html");
   }
 }
 
