@@ -89,7 +89,7 @@ if (isMobile) {
       "to actually watch.";
       iMsg = "You wanted answers before they were ready to meet you. And yet answers, like riddles, have a way of hiding in plain sight for\n" +
              "those too eager to see them. Every detail you overlook whispers louder than the truths you tried to grasp too quickly.\n" +
-             "So tell me...\n\n\n" + question_mark +generateRiddleMeThis();
+             "So tell me...\n\n\n" + question_mark + generateRiddleMeThis();
     }
 
 let speed = 1;
